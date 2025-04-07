@@ -43,7 +43,7 @@ run = '''
 set -euo pipefail
 
 file="pyproject.toml"
-bump="{{arg(name="type")}}"
+bump="{{ "{{" }}arg(name="type"){{ "}}" }}"
 
 # Extract current version
 version_line=$(grep -E '^version\s*=' "$file")
