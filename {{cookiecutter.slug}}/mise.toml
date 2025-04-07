@@ -1,0 +1,44 @@
+min_version = '2024.11.1'
+
+[tools]
+pre-commit = "latest"
+ruff = "latest"
+typos = "latest"
+uv = "latest"
+watchexec = "latest"
+
+[settings]
+python.uv_venv_auto = true
+
+[tasks.pkg-install]
+description = "Install package as a tool"
+run = ["uv tool install '{{ cookiecutter.slug }}@.'"]
+
+[tasks.lint]
+description = "Run linters"
+run = ["typos --diff", "ruff check"]
+
+[tasks.lint-fix]
+description = "Run linters"
+run = ["typos -w", "ruff check --fix"]
+
+[tasks.test]
+description = "Run unit tests"
+run = [
+  "uv run coverage run -m pytest -vv",
+  "uv run coverage report -m --include=src/**,tests/**",
+]
+
+[tasks.dep-bump]
+description = "Update dependencies versions"
+run = ["uv lock -U"]
+
+[tasks.ver-bump]
+description = "Bump semver in pyproject.toml"
+usage = """
+arg "<type>" default="patch"
+"""
+run = '''
+#!/usr/bin/env bash
+
+'''

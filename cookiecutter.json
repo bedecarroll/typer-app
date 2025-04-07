@@ -1,0 +1,10 @@
+{
+  "name": "",
+  "slug": "{{ cookiecutter.name.lower() | slugify }}",
+  "underscore": "{{ cookiecutter.slug.replace('-', '_') }}",
+  "description": "",
+  "author": "",
+  "_extensions": [
+    "cookiecutter.extensions.SlugifyExtension"
+  ]
+}
