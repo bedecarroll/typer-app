@@ -1,3 +1,6 @@
+# Standard aider ignore
+.aider*
+
 # Ignore a local mise config
 mise.local.toml
 
