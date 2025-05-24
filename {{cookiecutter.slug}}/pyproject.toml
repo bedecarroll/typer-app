@@ -4,7 +4,7 @@ name = "{{ cookiecutter.slug }}"
 version = "0.0.1"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = ["typer", "rich", "loguru"]
+dependencies = ["typer", "rich", "loguru", "icecream"]
 authors = [{ name = "{{ cookiecutter.author }}" }]
 maintainers = [{ name = "{{ cookiecutter.author }}" }]
 

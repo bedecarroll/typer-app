@@ -82,6 +82,7 @@ git commit -m "Initial structure from template"
 - [Typer](https://typer.tiangolo.com/)
 - [UV](https://docs.astral.sh/uv/)
 - [Loguru](https://github.com/Delgan/loguru)
+- [Icecream](https://github.com/gruns/icecream)
 - [Rich](https://github.com/Textualize/rich)
 - [Mise](https://mise.jdx.dev/)
 - [12 Factor CLI Apps](https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46)

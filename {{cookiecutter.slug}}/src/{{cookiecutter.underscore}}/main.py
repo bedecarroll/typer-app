@@ -4,6 +4,7 @@ import sys
 from typing import Annotated
 
 import typer
+from icecream import install  # pyright: ignore[reportMissingTypeStubs]
 from loguru import logger
 
 from {{ cookiecutter.underscore }}.example import app as example_app
@@ -33,9 +34,11 @@ def main(
         ),
     ] = None,
 ) -> None:
-    """{{ cookiecutter.name }} CLI tool."""
+    """{{ cookiecutter.name|capitalize }} CLI tool."""
+    install()
     if not debug:
         try:
+            ic.disable()  # noqa: F821 # pyright: ignore[reportUnknownMemberType,reportUndefinedVariable]
             logger.remove(0)
             _ = logger.add(sys.stderr, level="INFO")
         except ValueError:
