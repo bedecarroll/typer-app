@@ -21,8 +21,13 @@ For help, run:
 ## Development
 
 To contribute to this tool, first checkout the code. If you have `mise`
-installed once you `cd` into the repo `mise` should have automatically created
-the `venv` and activated it for you.
+installed it can automatically create the `venv` and activated it for you.
+
+```bash
+cd {{ cookiecutter.slug }}
+mise trust && uv lock && cd ..
+cd {{ cookiecutter.slug }}
+```
 
 Alternatively you can manually create the `venv` using `uv`.
 
