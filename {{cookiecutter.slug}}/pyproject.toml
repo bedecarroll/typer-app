@@ -1,0 +1,31 @@
+[project]
+description = "{{ cookiecutter.description }}"
+name = "{{ cookiecutter.slug }}"
+version = "0.0.1"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["typer", "rich", "loguru", "icecream"]
+authors = [{ name = "{{ cookiecutter.author }}" }]
+maintainers = [{ name = "{{ cookiecutter.author }}" }]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project.scripts]
+{{ cookiecutter.slug }} = "{{ cookiecutter.underscore }}.main:app"
+
+[dependency-groups]
+dev = ["pytest", "coverage", "pytest-randomly", "logot[loguru]", "ruff", "ty"]
+
+[tool.pytest.ini_options]
+logot_capturer = "logot.loguru.LoguruCapturer"
+
+[tool.coverage.run]
+branch = true
+
+[tool.coverage.report]
+exclude_also = ["if __name__ == .__main__.:"]
+
+[tool.ruff]
+extend = "../../ruff.toml"

@@ -1,0 +1,36 @@
+min_version = "2025.9.10"
+
+[tools]
+watchexec = "latest"
+
+[tasks.pkg-install]
+description = "Install package as a tool"
+run = ["uv tool install '{{ cookiecutter.slug }}@.'"]
+
+[tasks.lint]
+description = "Run linters and type checker"
+run = [
+  "typos --diff",
+  "ruff check",
+  "ruff format --check",
+  "uv run ty check",
+]
+
+[tasks.lint-fix]
+description = "Auto-fix lint and formatting issues"
+run = ["typos -w", "ruff check --fix", "ruff format"]
+
+[tasks.test]
+description = "Run unit tests"
+run = [
+  "uv run coverage run -m pytest -vv",
+  "uv run coverage report -m --include=src/**,tests/**",
+]
+
+[tasks.check]
+description = "Aggregate lint and test runs"
+depends = ["lint", "test"]
+
+[tasks.dep-bump]
+description = "Update dependencies versions"
+run = ["uv lock -U"]
